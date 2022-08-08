@@ -64,7 +64,7 @@
                          HorizontalOptions="Center">
                 
                 <Button Text="Delete"
-                        Command="{Binding DeleteCharacterCommand}"
+                        Command="{Binding DeleteVueloCommand}"
                         Margin="10,0"
                         BackgroundColor="Blue"
                         TextColor="White"

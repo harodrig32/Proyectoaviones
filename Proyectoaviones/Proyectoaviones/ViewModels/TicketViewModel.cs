@@ -57,8 +57,10 @@ namespace Proyectoaviones.ViewModels
             if (SelectedCharacter != null)
             {
                 var page = (Page)Activator.CreateInstance(pageType);
-                //page.BindingContext = new VueloDetailsViewModel(SelectedCharacter);
-                await Navigation.PushAsync(page);
+                page.BindingContext = new ticketDetailsViewModel(SelectedCharacter);
+
+                await Navigation.PushModalAsync(page);
+               // await Navigation.PushAsync(page);
 
                 SelectedCharacter = null;
             }
