@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:Proyectoaviones.Views"
+             x:Class="Proyectoaviones.Views.ListadoVuelos">
+    <ContentPage.Content>
+        <CollectionView ItemsSource="{Binding Vuelos}"
+                          SelectedItem="{Binding SelectedCharacter, Mode=TwoWay}"
+                            SelectionChangedCommand="{Binding GoToDetailsCommand}"
+                            SelectionChangedCommandParameter="{x:Type views:Comprar}"
+                            SelectionMode="Single"
+                        EmptyView="No hay vuelos que mostrar!"
+                        Margin="5">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="2"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Row="0"
+                                   FontAttributes="Bold"
+                                   LineBreakMode="WordWrap"
+                                   TextColor="Blue"
+                                   Text="{Binding aerolinea, StringFormat='aerolina: {0}'}"/>
+
+                        <Label Grid.Row="1"
+                                   FontAttributes="Italic"
+                                   LineBreakMode="WordWrap"
+                                   TextColor="Orange"
+                                   Text="{Binding origen, StringFormat='origen: {0}'}"/>
+
+                        <Label Grid.Row="2"
+                                   FontAttributes="Italic"
+                                   LineBreakMode="WordWrap"
+                                   TextColor="DarkGreen"
+                                   Text="{Binding destino, StringFormat='destino: {0}'}"/>
+
+                        <Label Grid.Row="3"
+                                   FontAttributes="Italic"
+                                   LineBreakMode="WordWrap"
+                                   TextColor="Brown"
+                                   Text="{Binding numeroasientos, StringFormat='numeroasientos: {0}'}"/>
+
+                        <BoxView Grid.Row="4" HeightRequest="1" Color="Black"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>

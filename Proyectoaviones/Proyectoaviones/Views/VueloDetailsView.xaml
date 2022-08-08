@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage  xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Proyectoaviones.Views.VueloDetailsView">
+    <ContentPage.Content>
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <Frame Grid.Row="0">
+                <Label Text="Character Details"/>
+            </Frame>
+
+            <ScrollView Grid.Row="1">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Text="Aerolinea"/>
+                    <Entry Grid.Row="0" Grid.Column="1" Text="{Binding VueloVM.aerolinea}"/>
+
+                    <Label Grid.Row="1" Grid.Column="0" Text="Origen"/>
+                    <Entry Grid.Row="1" Grid.Column="1" Text="{Binding VueloVM.origen}"/>
+
+                    <Label Grid.Row="2" Grid.Column="0" Text="Destino"/>
+                    <Entry Grid.Row="2" Grid.Column="1" Text="{Binding VueloVM.destino}"/>
+
+                    <Label Grid.Row="3" Grid.Column="0" Text="Hora"/>
+                    <Entry Grid.Row="3" Grid.Column="1" Text="{Binding VueloVM.hora}"/>
+
+                    <Label Grid.Row="4" Grid.Column="0" Text="Fecha"/>
+                    <Entry Grid.Row="4" Grid.Column="1" Text="{Binding VueloVM.fecha}"/>
+
+                    <Label Grid.Row="5" Grid.Column="0" Text="Hora Llegada"/>
+                    <Entry Grid.Row="5" Grid.Column="1" Text="{Binding VueloVM.horallegada}"/>
+
+                    <Label Grid.Row="6" Grid.Column="0" Text="Fech aLlegada"/>
+                    <Entry Grid.Row="6" Grid.Column="1" Text="{Binding VueloVM.fechallegada}"/>
+
+                    <Label Grid.Row="7" Grid.Column="0" Text="Numero Asientos"/>
+                    <Entry Grid.Row="7" Grid.Column="1" Text="{Binding VueloVM.numeroasientos}"/>
+                </Grid>
+            </ScrollView>
+
+            <StackLayout Grid.Row="2" 
+                         Orientation="Horizontal" 
+                         HorizontalOptions="Center">
+                <Button Text="Save"
+                        Command="{Binding SaveVueloCommand}"
+                        Margin="10,0"
+                        BackgroundColor="Blue"
+                        TextColor="White"
+                        CornerRadius="5"/>
+
+                <Button Text="Delete"
+                        Command="{Binding DeleteCharacterCommand}"
+                        Margin="10,0"
+                        BackgroundColor="Blue"
+                        TextColor="White"
+                        CornerRadius="5"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

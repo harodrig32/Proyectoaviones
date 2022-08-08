@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Proyectoaviones.Views.Listadotickets"
+             xmlns:views="clr-namespace:Proyectoaviones.Views"
+             Title="Lista de tickets">
+    <ContentPage.Content>
+        <StackLayout Margin="5">
+            <CollectionView ItemsSource="{Binding Tickets}"
+                            SelectedItem="{Binding Selectedticket, Mode=TwoWay}"
+                            SelectionChangedCommand="{Binding GoToDetailsCommand}"
+                            SelectionChangedCommandParameter="{x:Type views:TicketDetailsView}"
+                            SelectionMode="Single"
+                            EmptyView="No vuelos registered yet!"
+                            Margin="5">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="2"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="0"
+                                   FontAttributes="Bold"
+                                   LineBreakMode="WordWrap"
+                                   TextColor="Blue"
+                                   Text="{Binding idvuelo, StringFormat='vuelo: {0}'}"/>
+
+                            <Label Grid.Row="1"
+                                   FontAttributes="Italic"
+                                   LineBreakMode="WordWrap"
+                                   TextColor="Orange"
+                                   Text="{Binding cliente, StringFormat='cliente: {0}'}"/>
+
+                            <Label Grid.Row="2"
+                                   FontAttributes="Italic"
+                                   LineBreakMode="WordWrap"
+                                   TextColor="DarkGreen"
+                                   Text="{Binding cantidad, StringFormat='numero asientos: {0}'}"/>
+
+                            <Label Grid.Row="3"
+                                   FontAttributes="Italic"
+                                   LineBreakMode="WordWrap"
+                                   TextColor="Brown"
+                                   Text="{Binding precio, StringFormat='precio: {0}'}"/>
+
+                            <Label Grid.Row="3"
+                                   FontAttributes="Italic"
+                                   LineBreakMode="WordWrap"
+                                   TextColor="Brown"
+                                   Text="{Binding total, StringFormat='total: {0}'}"/>
+
+                            <BoxView Grid.Row="4" HeightRequest="1" Color="Black"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
