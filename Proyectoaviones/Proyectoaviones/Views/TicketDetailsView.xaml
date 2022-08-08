@@ -62,13 +62,7 @@
             <StackLayout Grid.Row="2" 
                          Orientation="Horizontal" 
                          HorizontalOptions="Center">
-                <Button Text="Save"
-                        Command="{Binding SaveVueloCommand}"
-                        Margin="10,0"
-                        BackgroundColor="Blue"
-                        TextColor="White"
-                        CornerRadius="5"/>
-
+                
                 <Button Text="Delete"
                         Command="{Binding DeleteCharacterCommand}"
                         Margin="10,0"

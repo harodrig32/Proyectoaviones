@@ -1,14 +1,19 @@
-﻿using System;
+﻿using Acr.UserDialogs;
+using Proyectoaviones.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace Proyectoaviones.ViewModels
 {
-    public class ticketDetailsViewModel
+    public class ticketDetailsViewModel : BaseViewModel
     {
-        private VueloViewModel _vueloVM;
+        private TicketsViewModel _vueloVM;
 
-        public VueloViewModel VueloVM
+        public TicketsViewModel VueloVM
         {
             get { return _vueloVM; }
             set { _vueloVM = value; OnPropertyChanged(); }
@@ -17,27 +22,13 @@ namespace Proyectoaviones.ViewModels
         public ICommand SaveVueloCommand { private set; get; }
         public ICommand DeleteVueloCommand { private set; get; }
 
-        public VueloDetailsViewModel(VueloViewModel vuelo)
+        public ticketDetailsViewModel(TicketsViewModel vuelo)
         {
             VueloVM = vuelo;
-            SaveVueloCommand = new Command(async () => await SaveVuelo());
             DeleteVueloCommand = new Command(async () => await DeleteVuelo());
         }
 
-        async Task SaveVuelo()
-        {
-            var isInsert = false;
-
-            if (string.IsNullOrWhiteSpace(VueloVM._id))
-            {
-                VueloVM._id = Guid.NewGuid().ToString();
-                isInsert = true;
-            }
-
-            var hpVuelo = VueloVM.GetVuelo();
-            var success = await App.Context.SaveItemAsync<Vuelos>(hpVuelo, isInsert);
-            await UserDialogs.Instance.AlertAsync((success > 0) ? "Success!" : "Error!", "Saving...", "OK");
-        }
+        
 
         async Task DeleteVuelo()
         {
@@ -46,7 +37,7 @@ namespace Proyectoaviones.ViewModels
             if (confirm)
             {
                 var hpVuelo = VueloVM.GetVuelo();
-                var success = await App.Context.DeleteItemAsync<Vuelos>(hpVuelo);
+                var success = await App.Context.DeleteItemAsync<Ventas>(hpVuelo);
                 await UserDialogs.Instance.AlertAsync((success > 0) ? "Success!" : "Error!", "Deleting...", "OK");
             }
         }
