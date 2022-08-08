@@ -49,13 +49,13 @@
                                    TextColor="Brown"
                                    Text="{Binding precio, StringFormat='precio: {0}'}"/>
 
-                            <Label Grid.Row="3"
+                            <Label Grid.Row="4"
                                    FontAttributes="Italic"
                                    LineBreakMode="WordWrap"
                                    TextColor="Brown"
                                    Text="{Binding total, StringFormat='total: {0}'}"/>
 
-                            <BoxView Grid.Row="4" HeightRequest="1" Color="Black"/>
+                            <BoxView Grid.Row="5" HeightRequest="1" Color="Black"/>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
