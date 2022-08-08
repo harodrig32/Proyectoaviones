@@ -6,8 +6,8 @@
              Title="Lista de tickets">
     <ContentPage.Content>
         <StackLayout Margin="5">
-            <CollectionView ItemsSource="{Binding Tickets}"
-                            SelectedItem="{Binding Selectedticket, Mode=TwoWay}"
+            <CollectionView ItemsSource="{Binding Vuelos}"
+                            SelectedItem="{Binding SelectedCharacter, Mode=TwoWay}"
                             SelectionChangedCommand="{Binding GoToDetailsCommand}"
                             SelectionChangedCommandParameter="{x:Type views:TicketDetailsView}"
                             SelectionMode="Single"
